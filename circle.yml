@@ -14,10 +14,23 @@ machine:
     version: 7.3
 
 dependencies:
+  cache_directories:
+    - /usr/local/Caskroom
+    - /usr/local/Celler
+
   pre:
-    - brew cask install xquartz
-    - brew install wine
-    - brew install mono
+    - |
+      if [ ! -e /usr/local/Caskroom ]; then
+        brew cask install xquartz
+      fi
+    - |
+      if [ ! -e /usr/local/Celler/wine ]; then
+        brew install wine
+      fi
+    - |
+      if [ ! -e /usr/local/Celler/mono ]; then
+        brew install mono
+      fi
 
 test:
   override:
