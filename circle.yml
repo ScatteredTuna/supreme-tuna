@@ -16,7 +16,7 @@ machine:
 dependencies:
   pre:
     - echo 'export PATH=$HOME/.homebrew/bin:$PATH' >>~/.bashrc
-    - echo 'export HOMEBREW_CASK_OPTS=--caskroom=$HOME/.homebrew/Caskroom --appdir=$HOME/Applications' >>~/.bashrc
+    - echo 'export HOMEBREW_CASK_OPTS="--caskroom=$HOME/.homebrew/Caskroom --appdir=$HOME/Applications"' >>~/.bashrc
     - . ~/.bashrc
     - |
       if [ ! -d ~/.homebrew ]; then
