@@ -15,22 +15,21 @@ machine:
 
 dependencies:
   pre:
+    - echo 'export PATH=$HOME/.homebrew/bin:$PATH' >>~/.bashrc
+    - echo 'export HOMEBREW_CASK_OPTS=--caskroom=$HOME/.homebrew/Caskroom --appdir=$HOME/Applications' >>~/.bashrc
+    - . ~/.bashrc
     - |
-      if [ ! -d /usr/local/Caskroom ]; then
+      if [ ! -d ~/.homebrew ]; then
+        mkdir -p ~/.homebrew
+        curl -L https://github.com/Homebrew/homebrew/tarball/master | tar xz --strip 1 -C ~/.homebrew
+        brew update
         brew cask install xquartz
-      fi
-    - |
-      if [ ! -d /usr/local/Celler/wine ]; then
         brew install wine
-      fi
-    - |
-      if [ ! -d /usr/local/Celler/mono ]; then
         brew install mono
       fi
 
   cache_directories:
-    - /usr/local/Caskroom
-    - /usr/local/Celler
+    - ~/.homebrew
 
 test:
   override:
