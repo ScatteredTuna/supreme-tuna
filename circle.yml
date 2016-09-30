@@ -15,7 +15,7 @@ machine:
 
 dependencies:
   pre:
-    - virtualenv aws-cli
+    - python -m virtualenv aws-cli
     - |
       pushd aws-cli
       source bin/activate
