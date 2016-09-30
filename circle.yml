@@ -15,6 +15,12 @@ machine:
 
 dependencies:
   pre:
+    - virtualenv aws-cli
+    - |
+      pushd aws-cli
+      source bin/activate
+      pip install awscli --ignore-installed six
+      popd
     - echo 'export PATH=$HOME/.homebrew/bin:$PATH' >>~/.bashrc
     - echo 'export HOMEBREW_CASK_OPTS="--caskroom=$HOME/.homebrew/Caskroom --appdir=$HOME/Applications"' >>~/.bashrc
     - . ~/.bashrc
