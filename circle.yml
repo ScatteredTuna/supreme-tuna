@@ -24,8 +24,8 @@ dependencies:
         curl -L https://github.com/Homebrew/homebrew/tarball/master | tar xz --strip 1 -C ~/.homebrew
         brew update
         brew cask install xquartz
-        brew install wine
-        brew install mono
+        brew install --debug --verbose wine
+        brew install --debug --verbose mono
       fi
 
   cache_directories:
